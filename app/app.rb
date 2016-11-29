@@ -1,10 +1,15 @@
 require 'sinatra/base'
+require './app/models/link.rb'
+require 'data_mapper'
+
 
 class App < Sinatra::Base
-  get '/' do
-    'Hello App!'
+
+  get '/links' do
+    @links = Link.all
+    #require 'pry'; binding.pry
+    erb :links
   end
 
-  # start the server if ruby file executed directly
   run! if app_file == $0
 end
