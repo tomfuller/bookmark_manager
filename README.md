@@ -21,7 +21,11 @@ SQL stands for Structured Query Language and is used for interacting with databa
 
 
 CRUD => SQL => HTTP
+
 CREATE => INSERT => PUT/POST
+
 READ => SELECT => GET
+
 UPDATE => UPDATE => POST/PUT/PATCH
+
 DELETE => DELETE => DELETE
