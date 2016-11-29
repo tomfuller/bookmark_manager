@@ -1,1 +1,3 @@
-<%= @links[-1].title %>
+<% @links.each do |link| %>
+Title <%= link.title %>
+<% end %>
