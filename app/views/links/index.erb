@@ -1,5 +1,5 @@
 <ul id='links'>
 <% @links.each do |link| %>
-  <li> <%=link.title%> <a href='<%=link.url %>' > <%= link.url %> </a> </li>
+  <li><a href='<%=link.url %>' ><%=link.title%></a> tag: <%= link.tag %></li>
 <% end %>
 </ul>

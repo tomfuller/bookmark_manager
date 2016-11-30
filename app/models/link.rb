@@ -8,6 +8,7 @@ class Link
   property :id, Serial
   property :title, String
   property :url, String
+  property :tag, String
 
   ConnectApptoDB.start_db_connection
 end
