@@ -6,9 +6,9 @@ group :test do
   gem 'capybara'
   gem 'rspec'
   gem 'selenium-webdriver'
-  gem 'database_cleaner'
 end
 
 gem "data_mapper"
 gem "dm-postgres-adapter"
 gem 'sinatra'
+gem 'database_cleaner'
