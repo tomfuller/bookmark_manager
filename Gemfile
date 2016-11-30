@@ -6,6 +6,7 @@ group :test do
   gem 'capybara'
   gem 'rspec'
   gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 gem "data_mapper"
