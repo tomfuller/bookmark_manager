@@ -1,3 +1,9 @@
+<h1> Links </h1>
+<ul id='links'>
 <% @links.each do |link| %>
-Title <%= link.title %>
+<li>
+Title: <%= link.title %>
+URL: <%= link.url %>
+</li>
 <% end %>
+</ul>

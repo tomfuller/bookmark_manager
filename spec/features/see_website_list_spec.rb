@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.feature "Seeing a list of websites" do
   scenario "showing a list" do
     Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')

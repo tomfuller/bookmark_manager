@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.feature "Adding new links" do
   scenario "creating links" do
     visit "/links/new"
