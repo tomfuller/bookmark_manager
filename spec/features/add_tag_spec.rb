@@ -8,7 +8,8 @@ RSpec.feature 'Add tag' do
     fill_in 'url', :with => 'http://www.facebook.com'
     fill_in 'tag', :with => 'social'
     click_button('Add')
-    expect(page).to have_content('social')
+    link = Link.first
+    expect(link.tags.map(&:name)).to include('social')
   end
 
 end

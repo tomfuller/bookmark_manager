@@ -9,6 +9,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require_relative '../app/models/link'
+require_relative '../app/models/tag'
 
 Capybara.app = BookmarkManager
 #Capybara.default_driver = :selenium
