@@ -8,6 +8,7 @@ gem 'dm-postgres-adapter'
 gem 'rspec-sinatra'
 gem 'sinatra'
 gem 'selenium-webdriver'
+gem 'pg'
 
 group :test do
   gem 'rspec'
