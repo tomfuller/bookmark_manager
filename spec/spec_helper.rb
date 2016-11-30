@@ -9,6 +9,7 @@ require 'capybara/rspec'
 require 'rspec'
 require './app/models/link'
 require 'database_cleaner'
+require 'features/web_helpers.rb'
 
 Capybara.app = BookmarkManager
 DatabaseCleaner.strategy = :truncation
