@@ -15,7 +15,6 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/links' do
-    p params
     link = Link.new(url: params[:url],
     title: params[:title])
     tag_input = params[:tag].split(",").collect { |tag| tag.lstrip.rstrip }
