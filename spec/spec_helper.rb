@@ -11,6 +11,7 @@ require 'database_cleaner'
 require_relative './features/web_helpers'
 require_relative '../app/models/link'
 require_relative '../app/models/tag'
+require_relative '../app/models/user'
 
 Capybara.app = BookmarkManager
 #Capybara.default_driver = :selenium
