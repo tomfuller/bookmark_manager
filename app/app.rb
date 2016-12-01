@@ -11,7 +11,7 @@ class BookmarkManager < Sinatra::Base
 
   get '/links/new' do
     @message = ''
-    erb(:'links/new')
+    erb :'links/new'
   end
 
   post '/links' do
@@ -25,11 +25,13 @@ class BookmarkManager < Sinatra::Base
 
   get '/tags' do
     @tags = Tag.all
-    erb(:'tags/index')
+    erb :'tags/index'
   end
 
-  get 'tags/:name' do
-    p params
+  get '/tags/:name' do
+    tag = Tag.first(name: params[:name])
+    @links = tag ? tag.links : []
+    erb :'links/index'
   end
 
   # start the server if ruby file executed directly
