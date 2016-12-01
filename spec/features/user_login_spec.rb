@@ -13,4 +13,15 @@ RSpec.feature 'User login' do
     expect(User.count).to eq 1
   end
 
+  scenario 'user puts wrong password in confirmation field' do
+    visit '/users/new'
+    fill_in 'username', :with => "user-mcuserface@email.com"
+    fill_in 'password', :with => "password123"
+    fill_in 'password_confirmation', :with => 'wrongpassword'
+    click_button('Submit')
+    expect(User.count).to eq 0
+  end
+
+
+
 end
