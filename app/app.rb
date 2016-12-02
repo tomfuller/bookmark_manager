@@ -32,7 +32,7 @@ class BookmarkManager < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/links'
     else
-      flash.now[:notice] = "Password and confirmation password do not match"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
   end
@@ -43,8 +43,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/links' do
-    link = Link.new(url: params[:url],
-    title: params[:title])
+    link = Link.new(url: params[:url], title: params[:title])
     tag_input = params[:tag].split(",").collect { |tag| tag.lstrip.rstrip }
 
     tag_input.each do |tag|
@@ -65,6 +64,22 @@ class BookmarkManager < Sinatra::Base
     @links = tag ? tag.links : []
     erb :'links/index'
   end
+
+  get '/sign-in' do
+    erb :'users/sign_in'
+  end
+
+  post '/session' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/links'
+    else
+      flash.now[:errors] = ['The username or password is incorrect']
+      erb :'session'
+    end
+  end
+
 
   helpers do
 

@@ -22,7 +22,7 @@ RSpec.feature 'User login' do
     click_button('Submit')
     expect(User.count).to eq 0
     expect(page).to have_current_path('/user')
-    expect(page).to have_content('Password and confirmation password do not match')
+    expect(page).to have_content('Password does not match the confirmation')
   end
 
   scenario 'user doesnt enter an email address' do
@@ -32,11 +32,21 @@ RSpec.feature 'User login' do
     click_button('Submit')
     expect(User.count).to eq 0
     expect(page).to have_current_path('/user')
+    expect(page).to have_content('Username must not be blank')
   end
 
-
-
-
-
-
+  scenario 'user account already exists' do
+    visit '/users/new'
+    fill_in 'username', :with => "user-mcuserface@email.com"
+    fill_in 'password', :with => "password123"
+    fill_in 'password_confirmation', :with => 'password123'
+    click_button('Submit')
+    visit '/users/new'
+    fill_in 'username', :with => "user-mcuserface@email.com"
+    fill_in 'password', :with => "password123"
+    fill_in 'password_confirmation', :with => 'password123'
+    click_button('Submit')
+    expect(User.count).to eq 1
+    expect(page).to have_content('Username is already taken')
+  end
 end
