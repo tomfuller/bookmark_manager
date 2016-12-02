@@ -28,8 +28,7 @@ class BookmarkManager < Sinatra::Base
 
   post '/user' do
     @user = User.new(username: params[:username], password: params[:password], password_confirmation: params[:password_confirmation])
-    if @user.valid?
-      @user.save
+    if @user.save
       session[:user_id] = @user.id
       redirect '/links'
     else

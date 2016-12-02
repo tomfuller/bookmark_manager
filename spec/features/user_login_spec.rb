@@ -25,6 +25,15 @@ RSpec.feature 'User login' do
     expect(page).to have_content('Password and confirmation password do not match')
   end
 
+  scenario 'user doesnt enter an email address' do
+    visit '/users/new'
+    fill_in 'password', :with => "password123"
+    fill_in 'password_confirmation', :with => 'password123'
+    click_button('Submit')
+    expect(User.count).to eq 0
+    expect(page).to have_current_path('/user')
+  end
+
 
 
 
